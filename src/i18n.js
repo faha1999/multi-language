@@ -11,7 +11,7 @@ i18n
     backend: {
       loadPath: '/assets/i18n/{{ns}}/{{lng}}.json',
     },
-    fallbackLng: 'bn',
+    fallbackLng: 'en',
     debug: false,
     ns: ['common', 'home', 'profile'],
 
@@ -21,6 +21,7 @@ i18n
     },
     react: {
       wait: true,
+      useSuspense: false,
     },
   });
 

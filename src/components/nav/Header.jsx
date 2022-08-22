@@ -13,8 +13,13 @@ const Header = () => {
     }
   }, []);
 
-  const handleLanguageChange = (e) => {
-    i18n.changeLanguage(e.target.value);
+  //   const handleLanguageChange = (e) => {
+  //     i18n.changeLanguage(e.target.value);
+  //   };
+
+  const lansButton = {
+    en: { nativeName: 'English' },
+    bn: { nativeName: 'বাংলা' },
   };
 
   return (
@@ -34,8 +39,20 @@ const Header = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
+        <div>
+          {Object.keys(lansButton).map((lng) => (
+            <button
+              type="submit"
+              key={lng}
+              onClick={() => i18n.changeLanguage(lng)}
+              disabled={i18n.resolvedLanguage === lng}
+            >
+              {lansButton[lng].nativeName}
+            </button>
+          ))}
+        </div>
+        <ul className="navbar-nav me-auto">
+          {/* <li className="nav-item">
             <select
               className="nav-link bg-dark border-0 ml-1 mr-2"
               value={localStorage.getItem('i18nextLng')}
@@ -44,7 +61,8 @@ const Header = () => {
               <option value="en">English</option>
               <option value="bn">বাংলা</option>
             </select>
-          </li>
+          </li> */}
+
           <li className="nav-item ml-2">
             <Link className="nav-link" to="/profile">
               {t('profile')}

@@ -1,0 +1,10 @@
+button {
+  color: green;
+  margin-right: 1rem;
+  background: #31fceb;
+  opacity: 0.5;
+
+  &:disabled {
+    opacity: 1;
+  }
+}
