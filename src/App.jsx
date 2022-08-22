@@ -1,19 +1,21 @@
-import React, { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Header } from './components/Header';
-import { Home } from './pages/Home';
-import { Profile } from './pages/Profile';
+import { Suspense } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/nav/Header';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 
-export const App = () => {
+const App = () => {
   return (
-    <>
-      <Suspense fallback={null}>
+    <Suspense fallback={null}>
+      <Router>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-      </Suspense>
-    </>
+      </Router>
+    </Suspense>
   );
 };
+
+export default App;

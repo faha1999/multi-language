@@ -1,32 +1,42 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { useTranslation } from "react-i18next";
 
-export const Profile = () => {
-  return (
-    <>
-      <h1 className="text-center">Profile</h1>
+const Profile = () => {
+	const { t } = useTranslation(["common", "profile"]);
 
-      <Form className="p-5 ">
-        <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Your name" />
-        </Form.Group>
+	return (
+		<div className="container mt-5 col-9 col-md-6">
+			<h1 className="text-center">{t("common:profile")}</h1>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Age</Form.Label>
-          <Form.Control type="number" placeholder="YOur age" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </>
-  );
+			<div className="form-group">
+				<label htmlFor="">{t("profile:name")}:</label>
+				<input
+					type="text"
+					className="form-control"
+					placeholder="John Doe"
+				/>
+			</div>
+			<div className="form-group">
+				<label htmlFor="">{t("profile:age")}:</label>
+				<input
+					type="number"
+					className="form-control"
+					placeholder="25"
+				/>
+			</div>
+			<div className="form-group">
+				<label htmlFor="">{t("profile:email")}:</label>
+				<input
+					type="text"
+					className="form-control"
+					placeholder="john@john.com"
+				/>
+			</div>
+			<br />
+			<div className="text-center">
+				<button className="btn btn-dark">{t("common:submit")}</button>
+			</div>
+		</div>
+	);
 };
+
+export default Profile;
